@@ -8,11 +8,12 @@
 当プロジェクトはユーザーの入力に関連したマンガを紹介するサイトを構築しています。
 
 ## 技術スタック
-- フロントエンド: React v19, JavaScript, tailwindcss
+- フロントエンド: React v19, JavaScript, tailwindcss, React Router v7
 - バックエンド: Node.js, Hono
 - データベース: D1
 - デプロイメント: Cloudflare Workers
 - パッケージマネージャー: pnpm
 - その他: GitHub Actions, GitHub Copilot
+- リンター, フォーマッター: ESLint, Prettier
 
 
