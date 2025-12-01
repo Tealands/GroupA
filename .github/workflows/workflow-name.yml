@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Run build
         run: echo "Running build..." # 実際には必要なスクリプトやコマンドを記述
 
@@ -19,15 +19,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '18'
+          node-version: '24'
       - name: Run Prettier check
+        shell: bash
         run: |
-          # npx を使ってインストール無しで Prettier を実行します。
-          # リポジトリに package.json がある場合はそちらを優先してください。
-          npx --yes prettier --version
-          npx --yes prettier --check "**/*.{js,ts,jsx,tsx,json,md,css,scss,html,yml,yaml}" 
-          
+          set -euo pipefail
+          FILES="**/*.{js,ts,jsx,tsx,json,md,css,scss,html,yml,yaml}"
+
+          echo "Checking for package.json and local prettier..."
+          if [ -f package.json ]; then
+            if grep -q "\"prettier\"" package.json 2>/dev/null; then
+              echo "Found prettier in package.json — using npx to run project-local prettier"
+              npx --yes prettier --version
+              npx --yes prettier --check "$FILES"
+              exit 0
+            else
+              echo "package.json found but no prettier entry. Will try npx remote or fallback."
+            fi
+          fi
+
+          # Try npx (it will download remote prettier if not installed locally)
+          if command -v npx >/dev/null 2>&1; then
+            echo "Attempting to run Prettier via npx..."
+            if npx --yes prettier --version >/dev/null 2>&1; then
+              npx --yes prettier --check "$FILES"
+              exit 0
+            else
+              echo "npx failed to run Prettier; will install globally as fallback"
+            fi
+          else
+            echo "npx not available; will install Prettier globally as fallback"
+          fi
+
+          npm install -g prettier
+          prettier --version
+          prettier --check "$FILES"
+
