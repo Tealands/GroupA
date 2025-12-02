@@ -25,50 +25,8 @@ jobs:
         with:
           node-version: "24"
       - name: Run Prettier check
-        shell: bash
         run: |
-          set -euo pipefail
-          FILES="**/*.{js,ts,jsx,tsx,json,md,css,scss,html,yml,yaml}"
-
-          echo "Checking for package.json and local prettier..."
-          if [ -f package.json ]; then
-            echo "package.json found — installing dependencies with npm ci"
-            npm ci
-
-            # Prefer using a repository-defined npm script if present
-            if jq -e '.scripts["format:check"]' package.json >/dev/null 2>&1; then
-              echo "Running npm run format:check"
-              npm run format:check
-              exit 0
-            elif jq -e '.scripts["format"]' package.json >/dev/null 2>&1; then
-              echo "Running npm run format (expecting it to include a check)"
-              npm run format
-              exit 0
-            fi
-
-            # Use local prettier binary if installed (from node_modules)
-            if npx --no-install prettier --version >/dev/null 2>&1; then
-              echo "Using project-local Prettier from node_modules"
-              npx --no-install prettier --check "$FILES"
-              exit 0
-            else
-              echo "Project-local Prettier not found after npm ci. Will try remote npx or fallback."
-            fi
-          fi
-
-          # Try npx remote (downloads and runs if no local prettier)
-          if command -v npx >/dev/null 2>&1; then
-            echo "Attempting to run Prettier via npx (remote)..."
-            if npx --yes prettier --version >/dev/null 2>&1; then
-              npx --yes prettier --check "$FILES"
-              exit 0
-            else
-              echo "npx failed to run Prettier; will install globally as fallback"
-            fi
-          else
-            echo "npx not available; will install Prettier globally as fallback"
-          fi
-
-          npm install -g prettier
-          prettier --version
-          prettier --check "$FILES"
+          # npx を使ってインストール無しで Prettier を実行します。
+            # リポジトリに package.json がある場合はそちらを優先してください。
+          npx --yes prettier --version
+          npx --yes prettier --check "**/*.{js,ts,jsx,tsx,json,md,css,scss,html,yml,yaml}"
