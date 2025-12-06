@@ -1,6 +1,8 @@
+@import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 /* project-level base customizations */
 :root {
