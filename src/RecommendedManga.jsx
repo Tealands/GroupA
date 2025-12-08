@@ -3,13 +3,12 @@ import "./RecommendedManga.css";
 
 function RecommendedManga() {
   const [mangaList] = useState([
-    // ここにおすすめの漫画データを追加
     {
       id: 1,
-      title: "進撃の巨人",
-      author: "諫山創",
-      description: "人類と巨人の戦いを描くダークファンタジー。",
-      image: "https://example.com/shingeki.jpg"
+      title: "架空",
+      author: "None",
+      description: "架空の小説",
+      image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCYem1sZ1gFHyHvnaLVGuaul_C5TwMHXYDo53C_LQV41btPFFWeA7EP7q7BgoB3M7X7LC5kS3xiDVZ23UZqRl-X0yVMkXdC-cnCzDDk17Qknq_zCfc6OJ3FaMq1Ca5nl5N3h7bbTQffGzm/s800/animal_koutei_penguin_hina.png"
     }
   ]);
 
