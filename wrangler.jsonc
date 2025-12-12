@@ -4,7 +4,7 @@
  */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "groupa",
+  "name": "group-a",
   "main": "worker/index.js",
   "compatibility_date": "2025-12-02",
   "assets": {
