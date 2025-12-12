@@ -24,8 +24,10 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: "24"
-      - name: Run Prettier check
-        run: npm install prettier
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Install dependencies
+        run: pnpm add prettier
       - name: format check
-        run: npm run format
+        run: pnpm format
 
