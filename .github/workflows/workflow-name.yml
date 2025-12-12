@@ -25,8 +25,7 @@ jobs:
         with:
           node-version: "24"
       - name: Run Prettier check
-        run: |
-          # npx を使ってインストール無しで Prettier を実行します。
-            # リポジトリに package.json がある場合はそちらを優先してください。
-          npx --yes prettier --version
-          npx --yes prettier --check "**/*.{js,ts,jsx,tsx,json,md,css,scss,html,yml,yaml}"
+        run: npm install prettier
+      - name: format check
+        run: npm run format
+
