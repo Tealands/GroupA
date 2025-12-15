@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), cloudflare(), tailwindcss(), autoprefixer()],
+  plugins: [react(), cloudflare(), tailwindcss()],
   optimizeDeps: {
     exclude: ['@tailwindcss/oxide', 'lightningcss']
   }
