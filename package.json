@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "format": "pnpm exec prettier --write ."
+    "format": "pnpm exec prettier --write \"src/**/*.{js,jsx,ts,tsx,css}\" \"index.html\" \"README.md\""
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
