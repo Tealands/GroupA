@@ -18,3 +18,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## Visit site 
 [このサイトのリンク](https://group-a.hachio0525.workers.dev/)
+
+## Demonstration
+開発環境で動作させるには、ターミナルで以下のコマンドを実行してください。
+```bash
+npm run dev
+```
