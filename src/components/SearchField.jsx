@@ -12,6 +12,7 @@ function SearchField({ onSearch }) {
   };
 
   return (
+    //入力欄とボタンのコンポーネント
     <div className="flex items-center space-x-2 mb-6">
       <input
         type="text"
@@ -24,10 +25,10 @@ function SearchField({ onSearch }) {
         onClick={handleSearch}
         className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
-        検索
+        検索する
       </button>
     </div>
   );
 }
 
-export default SearchField; 
+export default SearchField;
