@@ -30,4 +30,3 @@ jobs:
         run: pnpm add prettier
       - name: format check
         run: pnpm format
-
