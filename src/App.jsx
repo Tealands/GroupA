@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import RecommendedManga from "./components/RecommendedManga";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,9 +26,10 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
+      <p className="text-3xl font-bold underline">
         Click on the Vite and React logos to learn more
       </p>
+      <RecommendedManga />
     </>
   );
 }

@@ -1,21 +1,26 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "webken-18",
-  "main": "src/index.ts",
+  "name": "groupa",
+  "main": "worker/index.js",
   "compatibility_date": "2025-12-09",
   "assets": {
     "binding": "ASSETS",
-    "directory": "./public"
+    "directory": "./public",
+    "not_found_handling": "single-page-application"
   },
   "observability": {
     "enabled": true
   },
   "d1_databases": [
     {
-      "binding": "DB", // Workersから参照するための変数名
-      "database_name": "webken-18", // D1データベースの名前
-      "database_id": "webken-18", // D1データベースのID(今回は仮の値)
-      "migrations_dir": "drizzle" // マイグレーションファイルのパス
+      "binding": "DB",
+      "database_name": "webken-18",
+      "database_id": "webken-18",
+      "migrations_dir": "drizzle"
     }
   ]
 }
