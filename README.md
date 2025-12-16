@@ -18,6 +18,7 @@ If you are developing a production application, we recommend using TypeScript wi
 ## Visit site
 
 [このサイトのリンク](https://group-a.hachio0525.workers.dev/)
+[Cloudflare Workers版のリンク](https://dash.cloudflare.com/115f71b15a9e2caf11783eb86f176439/workers/services/view/group-a/production/builds/3b623518-3a76-4771-a53a-3778dd2e8101)
 
 ## Demonstration
 
@@ -33,7 +34,12 @@ pnpm install
 pnpm format
 ```
 
+プロジェクトをビルドするには、以下のコマンドを実行します。
+```bash
+pnpm build
+```
+
 その後、以下のコマンドで開発サーバーを起動します。
 ```bash
-npm run dev
+npm (run) dev
 ```

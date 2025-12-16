@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SearchField({ onSearch }) {
+function SearchField({ onSearch = () => {} }) {
   const [query, setQuery] = useState("");
 
   const handleInputChange = (e) => {
@@ -8,6 +8,7 @@ function SearchField({ onSearch }) {
   };
 
   const handleSearch = () => {
+    // onSearch にデフォルト no-op を設定しているため安心して呼び出せる
     onSearch(query);
   };
 

@@ -3,9 +3,17 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import RecommendedManga from "./components/RecommendedManga";
+import SearchField from "./components/SearchField";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (q) => {
+    // 現時点ではデバッグ用にログを出す。後で RecommendedManga に渡してフィルタ実装する予定。
+    console.log('search:', q);
+    setSearchQuery(q);
+  };
 
   return (
     <>
@@ -29,8 +37,8 @@ function App() {
       <p className="text-3xl font-bold underline">
         Click on the Vite and React logos to learn more
       </p>
-      <RecommendedManga />
-      <SearchField />
+      <RecommendedManga searchQuery={searchQuery} />
+      <SearchField onSearch={handleSearch} />
     </>
   );
 }
