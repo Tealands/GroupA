@@ -9,38 +9,55 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
-
-/* project-level base customizations */
-:root {
-  --bg: #0b1221;
-}
-
-html,body,#root { height: 100%; }
-body {
-  @apply bg-[var(--bg)] text-slate-100 antialiased;
-}
-
-/* small helper classes (if you need more, extend in tailwind.config.cjs) */
-.brand { @apply font-semibold tracking-wide; }
-.card { @apply bg-white/5 p-5 rounded-lg mt-4; }
-.muted { @apply text-slate-400; }
-@layer base {
+  /* project-level base customizations */
   :root {
     --bg: #0b1221;
   }
 
-  html, body, #root { height: 100%; }
-
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
   body {
     @apply bg-[var(--bg)] text-slate-100 antialiased;
   }
-}
 
-@layer components {
-  .brand { @apply font-semibold tracking-wide; }
-  .card { @apply bg-white/5 p-5 rounded-lg mt-4; }
-  .muted { @apply text-slate-400; }
-}
+  /* small helper classes (if you need more, extend in tailwind.config.cjs) */
+  .brand {
+    @apply font-semibold tracking-wide;
+  }
+  .card {
+    @apply bg-white/5 p-5 rounded-lg mt-4;
+  }
+  .muted {
+    @apply text-slate-400;
+  }
+  @layer base {
+    :root {
+      --bg: #0b1221;
+    }
 
+    html,
+    body,
+    #root {
+      height: 100%;
+    }
 
+    body {
+      @apply bg-[var(--bg)] text-slate-100 antialiased;
+    }
+  }
+
+  @layer components {
+    .brand {
+      @apply font-semibold tracking-wide;
+    }
+    .card {
+      @apply bg-white/5 p-5 rounded-lg mt-4;
+    }
+    .muted {
+      @apply text-slate-400;
+    }
+  }
 }
