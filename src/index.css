@@ -1,10 +1,15 @@
-@import "tailwindcss";
+/* stylelint-disable at-rule-no-unknown */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
 
 :root {
+  /* Project-level base customizations */
+  --bg: #0b1221;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -20,7 +25,9 @@
     height: 100%;
   }
   body {
-    @apply bg-[var(--bg)] text-slate-100 antialiased;
+    background-color: var(--bg);
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
   }
 
   /* small helper classes (if you need more, extend in tailwind.config.cjs) */

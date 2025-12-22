@@ -4,6 +4,10 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(), cloudflare(), tailwindcss()],
+export default defineConfig(({ command, mode }) => {
+  const isTest = process.env.VITEST === 'true' || mode === 'test';
+
+  return {
+    plugins: [react(), !isTest && cloudflare(), tailwindcss()].filter(Boolean),
+  };
 });
