@@ -20,6 +20,7 @@ function SearchField({ onSearch = () => {} }) {
         value={query}
         onChange={handleInputChange}
         placeholder="漫画を検索..."
+        aria-label="漫画検索フィールド"
         className="flex-grow p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <button

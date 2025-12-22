@@ -5,46 +5,35 @@
 /* stylelint-enable at-rule-no-unknown */
 
 :root {
+  /* Project-level base customizations */
+  --bg: #0b1221;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
-
-/* project-level base customizations */
-:root {
-  --bg: #0b1221;
 }
 
-html,body,#root { height: 100%; }
-body {
-  @apply bg-[var(--bg)] text-slate-100 antialiased;
-}
+html, body, #root { height: 100%; }
 
-/* small helper classes (if you need more, extend in tailwind.config.cjs) */
-.brand { @apply font-semibold tracking-wide; }
-.card { @apply bg-white/5 p-5 rounded-lg mt-4; }
-.muted { @apply text-slate-400; }
 @layer base {
-  :root {
-    --bg: #0b1221;
-  }
-
+  :root { --bg: #0b1221; }
   html, body, #root { height: 100%; }
-
   body {
-    @apply bg-[var(--bg)] text-slate-100 antialiased;
+    background-color: var(--bg);
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
 @layer components {
-  .brand { @apply font-semibold tracking-wide; }
-  .card { @apply bg-white/5 p-5 rounded-lg mt-4; }
-  .muted { @apply text-slate-400; }
-}
-
-
+  .brand { font-weight: 600; letter-spacing: 0.05em; }
+  .card {
+    background-color: rgba(255,255,255,0.05);
+    padding: 1.25rem; /* p-5 */
+    border-radius: 0.5rem; /* rounded-lg */
+    margin-top: 1rem; /* mt-4 */
+  }
+  .muted { color: #9CA3AF; }
 }

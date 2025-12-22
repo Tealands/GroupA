@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('RecommendedManga is visible', async ({ page }) => {
   page.on('console', async (msg) => {
     console.log('PAGE CONSOLE>', msg.type(), msg.text(), msg.location());
-    for (const a of msg.args()) {
+    for (const a of msg.args()) { 
       try {
         const val = await a.jsonValue();
         console.log('PAGE CONSOLE ARG JSON>', val);
